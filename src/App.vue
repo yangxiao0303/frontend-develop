@@ -1,31 +1,31 @@
 <template>
   <div class="app">
     <h2>{{ title }}</h2>
-    <School/>
+    <Enimation/>
     <hr>
-    <person/>
+    <Game/>
   </div>
 </template>
 
 <script>
-import Person from './components/Person.vue';
-import School from './components/School.vue';
-  export default {
-    name:'App',
-    components:{Person,School},
-    data() {
-      return {
-        title:'信息表'
-      }
-    },
-  }
+import Enimation from "./components/Enimation.vue";
+import Game from "./components/Game.vue";
+export default {
+  name: "App",
+  data() {
+    return {
+      title: "Infomation Chart",
+    };
+  },
+  components: { Enimation, Game },
+};
 </script>
 
 <style scoped>
-  .app{
-    background-color: antiquewhite;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px;
-  }
+.app{
+  background-color: #ccc;
+  padding: 30px;
+  box-shadow: 5px 5px 10px;
+  border-radius: 15px;
+}
 </style>
