@@ -1,8 +1,8 @@
 <template>
   <div class="school">
     <h2>学校信息</h2>
-    <span>校名:{{schoolName}}</span>
-    <span>地址:{{shcoolAddress}}</span>
+    <h3>校名:{{schoolName}}</h3>
+    <h3>地址:{{shcoolAddress}}</h3>
     <button @click="showSchoolInfo">查看学校信息</button>
   </div>
 </template>

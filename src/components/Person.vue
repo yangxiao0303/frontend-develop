@@ -1,8 +1,8 @@
 <template>
   <div class="person">
     <h2>个人信息</h2>
-    <span>姓名:{{ personName }}</span>
-    <span>年龄:{{ personAge }}</span>
+    <h3>姓名:{{ personName }}</h3>
+    <h3>年龄:{{ personAge }}</h3>
     <button @click="showPersonalInfo">点击查看个人信息</button>
   </div>
 </template>
