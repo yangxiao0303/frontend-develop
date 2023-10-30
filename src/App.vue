@@ -1,32 +1,30 @@
+<!-- 定义App模板结构 -->
 <template>
-  <!-- 组件模板 -->
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class='app'>
+    <h2>我是{{ name }}组件,欢迎来到{{ school }}学习Vue</h2>
+    <button @click="welcome">热烈欢迎</button>
   </div>
 </template>
 
 <script>
-// 引入子组件 HelloWorld
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  // 设置组件名字
-  name: 'App',
-  // 将HelloWorld组件,注册为App的子组件
-  components: {
-    HelloWorld
+  export default {
+    name: 'App',
+    data() {
+      return {
+        school: '尚硅谷',
+      }
+    },
+    methods: {
+      welcome() {
+        alert('欢迎欢迎,热烈欢迎!');
+      }
+    }
   }
-}
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.app {
+  background-color: aliceblue;
+  border: solid 1px #ccc;
 }
 </style>

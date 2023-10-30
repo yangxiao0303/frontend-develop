@@ -1,10 +1,12 @@
-// 引入 Vue
-import Vue from 'vue'
-// 引入 App 组件
-import App from './App.vue'
-// 关闭浏览器控制台开发模式提示
-Vue.config.productionTip = false
-// 生成vm
+// 引入Vue
+import Vue from "vue";
+// 引入App组件
+import App from "./App.vue";
+
+// 关闭生产提示
+Vue.config.productionTip = false;
+
+// 创建vm
 new Vue({
-  render: h => h(App),
-}).$mount('#app')
+  render: h => h(App)
+}).$mount('#app');
