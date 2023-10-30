@@ -1,30 +1,31 @@
-<!-- 定义App模板结构 -->
 <template>
-  <div class='app'>
-    <h2>我是{{ name }}组件,欢迎来到{{ school }}学习Vue</h2>
-    <button @click="welcome">热烈欢迎</button>
+  <div class="app">
+    <h2>{{ title }}</h2>
+    <School/>
+    <hr>
+    <person/>
   </div>
 </template>
 
 <script>
+import Person from './components/Person.vue';
+import School from './components/School.vue';
   export default {
-    name: 'App',
+    name:'App',
+    components:{Person,School},
     data() {
       return {
-        school: '尚硅谷',
+        title:'信息表'
       }
     },
-    methods: {
-      welcome() {
-        alert('欢迎欢迎,热烈欢迎!');
-      }
-    }
   }
 </script>
 
-<style>
-.app {
-  background-color: aliceblue;
-  border: solid 1px #ccc;
-}
+<style scoped>
+  .app{
+    background-color: antiquewhite;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px;
+  }
 </style>
