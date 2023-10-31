@@ -1,31 +1,39 @@
 <template>
-  <div class="app">
+  <div id="app">
     <h2>{{ title }}</h2>
-    <Enimation/>
-    <hr>
-    <Game/>
+    <FormInput />
+    <FormRadio/>
+    <FormCheckbox/>
+    <Dropdown/>
+    <TextArea></TextArea>
   </div>
 </template>
 
 <script>
-import Enimation from "./components/Enimation.vue";
-import Game from "./components/Game.vue";
+import FormInput from "./components/FormInput.vue";
+import FormRadio from "./components/FormRadio.vue";
+import FormCheckbox from "./components/FormCheckbox.vue";
+import Dropdown from "./components/Dropdown.vue";
+import TextArea from "./components/TextArea.vue"
+
 export default {
   name: "App",
+  // register the component
+  components: { FormInput,FormRadio,FormCheckbox,Dropdown,TextArea },
   data() {
     return {
-      title: "Infomation Chart",
+      title: "Personal Infomation Form",
     };
   },
-  components: { Enimation, Game },
 };
 </script>
 
 <style scoped>
-.app{
-  background-color: #ccc;
-  padding: 30px;
-  box-shadow: 5px 5px 10px;
-  border-radius: 15px;
+#app {
+  background-color: bisque;
+  border-radius: 5px;
+  border: 1px solid black;
+  box-shadow: 5px 10px 30px;
+  width: 500px;
 }
 </style>
