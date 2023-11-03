@@ -1,18 +1,24 @@
 <template>
   <li>
-    <label> <input type="checkbox" v-model="todoObj.done"/><span>{{ todoObj.title }}</span> </label>
-    <button class="btn btn-danger" @click="handleDelete(todoObj.id)">删除</button>
+    <label>
+      <input type="checkbox" v-model="todoObj.done" /><span>{{
+        todoObj.title
+      }}</span>
+    </label>
+    <button class="btn btn-danger" @click="handleDelete(todoObj.id)">
+      删除
+    </button>
   </li>
 </template>
 
 <script>
 export default {
   name: "Item",
-  props:["todoObj, deleteTodo"],
+  props: ["todoObj", "deleteTodo"],
   methods: {
-    handleDelete(id){
-      deleteTodo(id)
-    }
+    handleDelete(id) {
+      this.deleteTodo(id);
+    },
   },
 };
 </script>
@@ -43,6 +49,14 @@ li button {
   float: right;
   display: none;
   margin-top: 3px;
+}
+
+li:hover {
+  background-color: #ddd;
+}
+
+li:hover button{
+  display: inline-block;
 }
 
 li:before {
