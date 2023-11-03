@@ -1,14 +1,19 @@
 <template>
   <li>
     <label> <input type="checkbox" v-model="todoObj.done"/><span>{{ todoObj.title }}</span> </label>
-    <button class="btn btn-danger" style="display: none">删除</button>
+    <button class="btn btn-danger" @click="handleDelete(todoObj.id)">删除</button>
   </li>
 </template>
 
 <script>
 export default {
   name: "Item",
-  props:["todoObj"]
+  props:["todoObj, deleteTodo"],
+  methods: {
+    handleDelete(id){
+      deleteTodo(id)
+    }
+  },
 };
 </script>
 

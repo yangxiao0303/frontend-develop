@@ -2,7 +2,7 @@
   <div class="todo-container">
     <div class="todo-wrap">
       <Header :addTodo="addTodo"/>
-      <List :todos = 'todos'/>
+      <List :todos = 'todos' :deleltTodo = "deleteTodo"/>
       <Footer/>
 
     </div>
@@ -29,6 +29,9 @@ export default {
   methods: {
     addTodo(todoObj){
       this.todos.unshift(todoObj);
+    },
+    deleteTodo(id){
+      this.todos = this.todos.filter(item => item.id !== id);
     }
   },
 };
