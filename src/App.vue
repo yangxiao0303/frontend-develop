@@ -1,7 +1,7 @@
 <template>
   <div class="todo-container">
     <div class="todo-wrap">
-      <Header/>
+      <Header :addTodo="addTodo"/>
       <List :todos = 'todos'/>
       <Footer/>
 
@@ -24,6 +24,11 @@ export default {
         {id: 'asdiekc02', title: 'drink', done: false},
         {id: 'asdiekc03', title: 'gamble', done: true},
       ]
+    }
+  },
+  methods: {
+    addTodo(todoObj){
+      this.todos.unshift(todoObj);
     }
   },
 };
