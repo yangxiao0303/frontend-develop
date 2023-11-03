@@ -1,23 +1,37 @@
 <template>
   <div class="todo-footer">
-        <label>
-          <input type="checkbox"/>
-        </label>
-        <span>
-          <span>已完成0</span> / 全部2
-        </span>
-        <button class="btn btn-danger">清除已完成任务</button>
-      </div>
+    <label>
+      <input type="checkbox" v-model="isAllChecked" />
+    </label>
+    <span>
+      <span>已完成{{ doneCount }}</span> / 全部 {{ todos.length }}
+    </span>
+    <button class="btn btn-danger">清除已完成任务</button>
+  </div>
 </template>
 
 <script>
-  export default {
-    name:'Footer'
-  }
+export default {
+  name: "Footer",
+  props: ["todos","batchChecked"],
+  computed: {
+    doneCount() {
+      return this.todos.filter((item) => item.done).length;
+    },
+    isAllChecked: {
+      get() {
+        return this.doneCount === this.todos.length;
+      },
+      set(value) {
+        this.batchChecked(value);
+      },
+    },
+  },
+};
 </script>
 
 <style scoped>
-  /*footer*/
+/*footer*/
 .todo-footer {
   height: 40px;
   line-height: 40px;

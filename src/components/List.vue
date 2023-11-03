@@ -5,6 +5,7 @@
     :key= "todo.id" 
     :todoObj = "todo" 
     :deleteTodo = "deleltTodo"
+    :checkedTodo = "checkedTodo"
    />
   </ul>
 </template>
@@ -15,7 +16,7 @@ import Item from './Item.vue';
   export default {
     name:'List',
     components:{Item},
-    props:['todos', 'deleltTodo'],
+    props:['todos', 'deleltTodo','checkedTodo'],
   }
 </script>
 

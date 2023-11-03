@@ -2,8 +2,8 @@
   <div class="todo-container">
     <div class="todo-wrap">
       <Header :addTodo="addTodo"/>
-      <List :todos = 'todos' :deleltTodo = "deleteTodo"/>
-      <Footer/>
+      <List :todos = 'todos' :deleltTodo = "deleteTodo" :checkedTodo="checkedTodo"/>
+      <Footer v-if="todos.length" :todos = 'todos' :batchChecked="batchChecked"/>
 
     </div>
   </div>
@@ -21,7 +21,7 @@ export default {
     return {
       todos:[
         {id: 'asdiekc01', title: 'smoke', done: false},
-        {id: 'asdiekc02', title: 'drink', done: false},
+        {id: 'asdiekc02', title: 'drink', done: true},
         {id: 'asdiekc03', title: 'gamble', done: true},
       ]
     }
@@ -32,6 +32,13 @@ export default {
     },
     deleteTodo(id){
       this.todos = this.todos.filter(item => item.id !== id);
+    },
+    checkedTodo(id){
+      // 遍历,如果id一致,则修改done的值,记得要赋值!
+      this.todos.forEach(item => item.id === id? item.done =!item.done:null);
+    },
+    batchChecked(value){
+      this.todos.forEach(item => item.done = value);
     }
   },
 };
