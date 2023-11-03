@@ -1,7 +1,6 @@
 <template>
   <div class="son">
     <h2>father's car: {{ car }}</h2>
-    <button @click="changeCar">changeCar to Mercedes</button>
   </div>
 </template>
 
@@ -18,4 +17,10 @@ export default {
 </script>
 
 <style scoped>
+  .son{
+    border: 1px solide black;
+    box-shadow: 0 0 10px;
+    border-radius: 5px;
+    background-color: aquamarine;
+  }
 </style>
