@@ -6,14 +6,19 @@
     <span>
       <span>已完成{{ doneCount }}</span> / 全部 {{ todos.length }}
     </span>
-    <button class="btn btn-danger">清除已完成任务</button>
+    <button class="btn btn-danger" @click="handleCheckedTodos">清除已完成任务</button>
   </div>
 </template>
 
 <script>
 export default {
   name: "Footer",
-  props: ["todos","batchChecked"],
+  props: ["todos","batchChecked","clearCheckedTodos"],
+  methods:{
+    handleCheckedTodos(){
+      this.clearCheckedTodos();
+    }
+  },
   computed: {
     doneCount() {
       return this.todos.filter((item) => item.done).length;

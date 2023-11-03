@@ -1,10 +1,13 @@
 <template>
   <div class="todo-container">
     <div class="todo-wrap">
-      <Header :addTodo="addTodo"/>
-      <List :todos = 'todos' :deleltTodo = "deleteTodo" :checkedTodo="checkedTodo"/>
-      <Footer v-if="todos.length" :todos = 'todos' :batchChecked="batchChecked"/>
-
+      <Header :addTodo="addTodo" />
+      <List
+        :todos="todos"
+        :deleltTodo="deleteTodo"
+        :checkedTodo="checkedTodo"
+      />
+      <Footer v-if="todos.length" :todos="todos" :batchChecked="batchChecked" :clearCheckedTodos="clearCheckedTodos" />
     </div>
   </div>
 </template>
@@ -19,27 +22,32 @@ export default {
   components: { Header, List, Footer },
   data() {
     return {
-      todos:[
-        {id: 'asdiekc01', title: 'smoke', done: false},
-        {id: 'asdiekc02', title: 'drink', done: true},
-        {id: 'asdiekc03', title: 'gamble', done: true},
-      ]
-    }
+      todos: [
+        { id: "asdiekc01", title: "smoke", done: false },
+        { id: "asdiekc02", title: "drink", done: true },
+        { id: "asdiekc03", title: "gamble", done: true },
+      ],
+    };
   },
   methods: {
-    addTodo(todoObj){
+    addTodo(todoObj) {
       this.todos.unshift(todoObj);
     },
-    deleteTodo(id){
-      this.todos = this.todos.filter(item => item.id !== id);
+    deleteTodo(id) {
+      this.todos = this.todos.filter((item) => item.id !== id);
     },
-    checkedTodo(id){
+    checkedTodo(id) {
       // 遍历,如果id一致,则修改done的值,记得要赋值!
-      this.todos.forEach(item => item.id === id? item.done =!item.done:null);
+      this.todos.forEach((item) =>
+        item.id === id ? (item.done = !item.done) : null
+      );
     },
-    batchChecked(value){
-      this.todos.forEach(item => item.done = value);
-    }
+    batchChecked(value) {
+      this.todos.forEach((item) => (item.done = value));
+    },
+    clearCheckedTodos() {
+      this.todos = this.todos.filter((item) => !item.done);
+    },
   },
 };
 </script>
