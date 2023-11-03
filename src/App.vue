@@ -2,7 +2,7 @@
   <div class="todo-container">
     <div class="todo-wrap">
       <Header/>
-      <List/>
+      <List :todos = 'todos'/>
       <Footer/>
 
     </div>
@@ -17,6 +17,15 @@ import Footer from "./components/Footer.vue";
 export default {
   name: "App",
   components: { Header, List, Footer },
+  data() {
+    return {
+      todos:[
+        {id: 'asdiekc01', title: 'smoke', done: false},
+        {id: 'asdiekc02', title: 'drink', done: false},
+        {id: 'asdiekc03', title: 'gamble', done: true},
+      ]
+    }
+  },
 };
 </script>
 

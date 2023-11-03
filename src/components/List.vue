@@ -1,7 +1,6 @@
 <template>
   <ul class="todo-main">
-    <Item></Item>
-    <Item></Item>
+    <Item v-for="todo in todos" :key= "todo.id" :todoObj = "todo"/>
   </ul>
 </template>
 
@@ -10,7 +9,8 @@ import Item from './Item.vue';
 
   export default {
     name:'List',
-    components:{Item}
+    components:{Item},
+    props:['todos'],
   }
 </script>
 
