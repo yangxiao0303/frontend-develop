@@ -7,7 +7,12 @@
         :deleltTodo="deleteTodo"
         :checkedTodo="checkedTodo"
       />
-      <Footer v-if="todos.length" :todos="todos" :batchChecked="batchChecked" :clearCheckedTodos="clearCheckedTodos" />
+      <Footer
+        v-if="todos.length"
+        :todos="todos"
+        :batchChecked="batchChecked"
+        :clearCheckedTodos="clearCheckedTodos"
+      />
     </div>
   </div>
 </template>
@@ -22,11 +27,8 @@ export default {
   components: { Header, List, Footer },
   data() {
     return {
-      todos: [
-        { id: "asdiekc01", title: "smoke", done: false },
-        { id: "asdiekc02", title: "drink", done: true },
-        { id: "asdiekc03", title: "gamble", done: true },
-      ],
+      // todos 的初始值(初次访问则为空数组)
+      todos: JSON.parse(localStorage.getItem('todos')) || [],
     };
   },
   methods: {
@@ -47,6 +49,18 @@ export default {
     },
     clearCheckedTodos() {
       this.todos = this.todos.filter((item) => !item.done);
+    },
+  },
+  watch: {
+    // 监视 todos 的数据变化
+    todos: {
+      // 深度监视开启, 用来追踪 todos 内部属性 'done' 的变化
+      deep: true,
+      // value 为 vue 底层传入的更新后的 todos 的值
+      handler(value) {
+        // 变化设置更新
+        localStorage.setItem('todos',JSON.stringify(value))
+      },
     },
   },
 };
