@@ -1,7 +1,10 @@
 <template>
   <div class="category">
     <h3>今日{{ title }}推荐</h3>
-    <slot></slot>
+    <!-- 子元素中定义多个 slot 标签 并添加值不同的name属性 -->
+    <slot name="s1">等待插入内容</slot>
+    <slot name="s2">等待插入内容</slot><br>
+    <slot name="s3">等待插入内容</slot>
   </div>
 </template>
 
@@ -9,7 +12,7 @@
 export default {
   name: "Category",
   props: ["title"],
-};
+}; 
 </script>
 
 <style scoped>
