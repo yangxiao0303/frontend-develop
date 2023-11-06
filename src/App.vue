@@ -1,29 +1,12 @@
 <template>
   <div class="box">
-    <Game>
-      <template scope="data">
-        <ul>
-          <li v-for="game in data.games" :key="game.id">{{ game.name }}</li>
-        </ul>
-      </template>
-    </Game>
-    <Game>
-      <!-- <template slot-scope={games}> -->
-        <!-- <template v-slot="{games}"> -->
-        <template v-slot:default ="{games}">  
-        <ol>
-          <li v-for="game in games" :key="game.id">{{ game.name }}</li>
-        </ol>
-      </template>
-    </Game>
-    <Game>
-      <!-- 具名作用域插槽 -->
-      <template v-slot:s2="{text}">
-        <h3>
-          {{ text }}
-        </h3>
-      </template>
-    </Game>
+    <!-- 插件中的全局组件 -->
+    <Hello />
+    <!-- 插件中的 全局自定义指令和属性-->
+    <h2 v-beauty="xuexiao"></h2>
+    <!-- 插件中的方法 -->
+    <button @click="welcome">点我欢迎</button>
+
   </div>
 </template>
 

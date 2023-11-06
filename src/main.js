@@ -1,13 +1,11 @@
 import Vue from "vue"
 import App from "./App.vue"
+import demo from "./plugins/demo";
 
 Vue.config.productionTip = false;
 
-Vue.directive('beauty',function(element,{value}){
-  element.innerText = value;
-  element.style.backgroundColor = '#dd302d';
-  element.style.color = 'aqua';
-})
+// 引入并安装插件 
+Vue.use(demo);
 
 new Vue({
   beforeCreate() {
