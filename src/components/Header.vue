@@ -13,7 +13,6 @@
 import {nanoid} from 'nanoid';
 export default {
   name: "Header",
-  props:["addTodo"],
   data() {
     return {
       title:''
@@ -32,7 +31,7 @@ export default {
           done: false
         }
         // 调用 父元素方法
-        this.addTodo(todoObj);
+        this.$emit('add-todo',todoObj);
         // 清空输入框
         this.title = "";
       }
