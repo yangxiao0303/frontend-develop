@@ -5,19 +5,21 @@
     <!-- 自定义指令 数字10倍放大 -->
     <h2 v-big="sum">哈哈</h2>
     <!-- 自定义指令 beauty 改变样式 -->
-    <span v-beauty="name"></span>
+    <!-- <span v-beauty="name"></span> -->
+    <Child/>
   </div>
 </template>
 
 <script>
+import Child from './components/Child.vue';
 export default {
   name: "App",
   data() {
     return {
       sum: 123,
-      name: "高圆圆",
     };
   },
+  components:{Child},
   directives:{
     big(element,{value}){
       element.innerText += value*10;

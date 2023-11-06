@@ -16,5 +16,7 @@
 </script>
 
 <style scoped>
-  
+  .box{
+    width: 100px;
+  }
 </style>
