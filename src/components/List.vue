@@ -1,41 +1,39 @@
 <template>
       <div class="row">
-      <div class="card">
-        <a href="https://github.com/xxxxxx" target="_blank">
-          <img src="https://v2.cn.vuejs.org/images/logo.svg" style='width: 100px'/>
+      <div class="card" v-for="user in userList" :key="user.id">
+        <a :href="user.html_url">
+          <img :src="user.avatar_url" 
+          style='width: 100px'
+          />
         </a>
-        <p class="card-text">xxxxxx</p>
-      </div>
-      <div class="card">
-        <a href="https://github.com/xxxxxx" target="_blank">
-          <img src="https://v2.cn.vuejs.org/images/logo.svg" style='width: 100px'/>
-        </a>
-        <p class="card-text">xxxxxx</p>
-      </div>
-      <div class="card">
-        <a href="https://github.com/xxxxxx" target="_blank">
-          <img src="https://v2.cn.vuejs.org/images/logo.svg" style='width: 100px'/>
-        </a>
-        <p class="card-text">xxxxxx</p>
-      </div>
-      <div class="card">
-        <a href="https://github.com/xxxxxx" target="_blank">
-          <img src="https://v2.cn.vuejs.org/images/logo.svg" style='width: 100px'/>
-        </a>
-        <p class="card-text">xxxxxx</p>
-      </div>
-      <div class="card">
-        <a href="https://github.com/xxxxxx" target="_blank">
-          <img src="https://v2.cn.vuejs.org/images/logo.svg" style='width: 100px'/>
-        </a>
-        <p class="card-text">xxxxxx</p>
+        <p class="card-text">{{user.login}}</p>
       </div>
     </div>
 </template>
 
 <script>
   export default {
-    name:'List'
+    name:'List',
+    data() {
+      return {
+        userList:[]
+      }
+    },
+    // 定义一个事件(定义在需要接收数据的组件内部)
+    methods:{
+      saveUserList(list){
+        this.userList = list;
+      }
+    },
+    // 在挂在结束之前,将事件绑定
+    // 第一个参数为事件名字.第二个参数为具体事件内容
+    mounted(){
+      this.$bus.$on('user-list',this.saveUserList)
+    },
+    // 在组件销毁之前要解绑事件
+    beforeDestroy(){
+      this.$bus.$off('user-list')
+    }
   }
 </script>
 
