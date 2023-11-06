@@ -22,16 +22,12 @@ export default {
     big(element,{value}){
       element.innerText += value*10;
     },
-    beauty(element,{value}){
-      element.innerText = value;
-      element.style.backgroundColor = '#dd302d';
-      element.style.color = 'aqua';
-    }
+    
   }
 };
 </script>
 
-<style scoped>
+<style>
 .box{
   background-color: #ddd;
   border-radius: 10px;
