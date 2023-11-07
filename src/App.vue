@@ -1,31 +1,24 @@
 <template>
-  <div class="box">
-    <!-- 插件中的全局组件 -->
-    <Hello />
-    <!-- 插件中的 全局自定义指令和属性-->
-    <h2 v-beauty="xuexiao"></h2>
-    <!-- 插件中的方法 -->
-    <button @click="welcome">点我欢迎</button>
-
+  <div class="app">
+    <Count/>
   </div>
 </template>
 
 <script>
-import Game from "./components/Game.vue";
-export default {
-  name: "App",
-  components: { Game },
-  
-};
+import Count from './components/Count.vue';
+  export default {
+    name:'App',
+    components:{Count}
+  }
 </script>
 
 <style>
-.box {
-  background-color: #ddd;
-  display: flex;
-  justify-content: space-evenly;
-  padding: 10px;
-  border-radius: 5px;
-  justify-content: space-evenly;
-}
+  .app{
+    width: 500px;
+    background-color: #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px;
+    border: 1px solid black;
+    padding: 10px;
+  }
 </style>
