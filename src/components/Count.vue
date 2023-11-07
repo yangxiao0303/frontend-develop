@@ -1,6 +1,7 @@
 <template>
   <div class="count">
     <h1>当前的和为: {{ $store.state.sum }}</h1>
+    <h1>土味情话: {{ $store.state.sentence }}</h1>
     <select v-model.number="num">
       <option value="1">1</option>
       <option value="2">2</option>
@@ -10,6 +11,7 @@
     <button @click="minus">-</button>
     <button @click="oddAdd">当前和为奇数+</button>
     <button @click="waitAdd">等一等+</button>
+    <button @click="serverAdd">从服务器+</button>
   </div>
 </template>
 
@@ -24,11 +26,12 @@ export default {
   },
   methods: {
     add() {
-      // 调用vc上绑定的$store里的dispatch,并携带数据
-      this.$store.dispatch('jia',this.num);
+      // 调用vc上绑定的$store里的commit 跳过 action阶段
+      // 注意,mutation 阶段不能跳过, Vuex devtool 监视他的状态变化
+      this.$store.commit('JIA',this.num);
     },
     minus() {
-      this.$store.dispatch('jian',this.num);
+      this.$store.commit('JIAN',this.num);
     },
     oddAdd() {
       this.$store.dispatch('jijia',this.num);
@@ -36,6 +39,9 @@ export default {
     waitAdd() {
       this.$store.dispatch('dengjia',this.num);
     },
+    serverAdd() {
+      this.$store.dispatch('fuwujia');
+    }
   },
 };
 </script>
