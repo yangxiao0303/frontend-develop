@@ -1,6 +1,6 @@
 <template>
   <div class="count">
-    <h1>当前的和为: {{ sum }}</h1>
+    <h1>当前的和为: {{ $store.state.sum }}</h1>
     <select v-model.number="num">
       <option value="1">1</option>
       <option value="2">2</option>
@@ -24,20 +24,17 @@ export default {
   },
   methods: {
     add() {
-      this.sum += this.num;
+      // 调用vc上绑定的$store里的dispatch,并携带数据
+      this.$store.dispatch('jia',this.num);
     },
     minus() {
-      this.sum -= this.num;
+      this.$store.dispatch('jian',this.num);
     },
     oddAdd() {
-      if (this.sum % 2) {
-        this.sum += this.num;
-      }
+      this.$store.dispatch('jijia',this.num);
     },
     waitAdd() {
-      setTimeout(() => {
-        this.sum += this.num;
-      }, 500);
+      this.$store.dispatch('dengjia',this.num);
     },
   },
 };
